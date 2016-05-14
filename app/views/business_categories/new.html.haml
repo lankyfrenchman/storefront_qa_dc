@@ -1,1 +1,9 @@
 %h1 Add New Business Category
+
+= simple_form_for @business_category do |f|
+
+  .input-group
+    = f.input_field :name
+
+  .input-group
+    = f.submit 'Add Category'

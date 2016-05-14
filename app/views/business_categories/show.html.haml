@@ -1,0 +1,15 @@
+%h1= @business_category.name
+
+%h2 Subcategories
+.row
+  .col-xs-12
+    = link_to 'Add new subcategory', new_business_category_business_subcategory_path(@business_category)
+
+- @business_category.business_subcategories.each do |subcategory|
+
+  %h4
+    = subcategory.name
+
+.row.section
+  .col-xs-12
+    = link_to 'Back to Business Categories', business_categories_path

@@ -1,0 +1,10 @@
+%h1
+  New Subcategory for #{@business_category.name}
+
+= simple_form_for [@business_category, @business_subcategory] do |f|
+
+  .input-group
+    = f.input_field :name
+
+  .input-group
+    = f.submit
