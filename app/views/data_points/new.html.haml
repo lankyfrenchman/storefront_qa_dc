@@ -1,10 +1,30 @@
 %h1 Add Data
 
-#geolocate
+.row
+  .col-xs-12
+    #geolocate
+      .fa.fa-spinner.fa-spin.fa-3x.fa-fw
+      Geolocating you!
+
 = simple_form_for @data_point do |f|
   = f.hidden_field :latitude
   = f.hidden_field :longitude
-  
-  = f.input_field :vacant
+  .row
+    .col-xs-12
+      = f.hidden_field :latitude
 
-  = f.submit
+  .row
+    .col-xs-12
+      = f.hidden_field :longitude
+
+  .row
+    .col-xs-12
+      = f.input :vacant
+
+  .row
+    .col-xs-12
+      = f.input :commercial
+
+  .row 
+    .col-xs-12
+      = f.submit 'Complete', class: 'btn btn-primary'
