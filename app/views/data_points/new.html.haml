@@ -4,7 +4,7 @@
   .col-xs-12
     %h3 Help your local Great Streets by filling out this micro-survey.
 
-.row
+.row.section
   .col-xs-12
     #geolocate
       .fa.fa-spinner.fa-spin.fa-3x.fa-fw
@@ -16,47 +16,48 @@
 
   .row.section
     .col-xs-12
-      Please take a photo of the storefront:
+      = f.input :commercial, as: :select, label: 'Is this storefront commercial?'
 
-  .row.section.image-uploader
-    .col-xs-12
-      = f.file_field :photo_url, class: 'btn btn-primary'
 
-  .row
-    .col-xs-12
-      %strong For accuracy's sake, please enter the street address:
+  #commercial-form
+    .row.section
+      .col-xs-12
+        Please take a photo of the storefront:
 
-  .row.section
-    .col-xs-12
-      = f.input :street_number
-  .row
-    .col-xs-12
-      = f.input :address_1
+    .row.section.image-uploader
+      .col-xs-12
+        = f.file_field :photo_url, class: 'btn btn-primary'
 
-  .row
-    .col-xs-12
-      = f.input :address_2
+    .row
+      .col-xs-12
+        %strong For accuracy's sake, please enter the street address:
 
-  .row
-    .col-xs-12
-      = f.input :quadrant
+    .row.section
+      .col-xs-12
+        = f.input :street_number, placeholder: '1600'
+    .row
+      .col-xs-12
+        = f.input :address_1, label: 'Street Name', placeholder: 'Pennsylvania Ave'
 
-  .row
-    .col-xs-12
-      = f.input :vacant, label: 'Is this storefront vacant?'
+    .row
+      .col-xs-12
+        = f.input :quadrant, collection: ['NW', 'NE', 'SE', 'SW']
 
-  .row
-    .col-xs-12
-      = f.input :commercial
+    .row
+      .col-xs-12
+        = f.input :vacant, label: 'Is this storefront vacant?'
 
-  .row
-    .col-xs-12
-      = f.input :outside_condition
-      
-  .row
-    .col-xs-12
-      = f.input :inside_condition
+    .row
+      .col-xs-12
+        = f.input :outside_condition, as: :select, collection: DataPoint.outside_conditions.map { |key, value| [key.humanize, key] }
 
-  .row.section
-    .col-xs-12
-      = f.submit 'Complete', class: 'btn btn-primary'
+    .row
+      .col-xs-12
+        = f.input :inside_condition, as: :select, collection: DataPoint.inside_conditions.map { |key, value| [key.humanize, key] }
+
+    .row.section
+      .col-xs-12
+        = f.submit 'Complete Survey', class: 'btn btn-primary'
+
+  #non-commercial
+    %h4 Sorry - we only need data for commercial storefronts!

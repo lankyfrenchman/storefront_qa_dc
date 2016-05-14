@@ -9,3 +9,14 @@ $ ->
 
   if $('#geolocate').length
     navigator.geolocation.getCurrentPosition(geo_call)
+
+  $('#data_point_commercial').on 'change', ->
+    if $(this).val() == 'false'
+      $('#commercial-form').hide();
+      $('#non-commercial').show();
+    else
+      $('#commercial-form').show();
+      $('#non-commercial').hide();
+
+  if $('#non-commercial').length
+    $('#non-commercial').hide()
