@@ -6,6 +6,13 @@ class DataPointsController < ApplicationController
   def create
     @data_point = DataPoint.new(data_point_params)
 
+    if @data_point.save
+      flash[:success] = 'Survey completed!'
+      redirect_to root_path
+    else
+      flash[:error] = 'Something went wrong'
+      render :new
+    end
   end
 
   private

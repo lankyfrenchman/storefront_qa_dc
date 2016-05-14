@@ -1,4 +1,8 @@
-%h1 Add Data
+%h1 Business Survey
+
+.row
+  .col-xs-12
+    %h3 Help your local Great Streets by filling out this micro-survey.
 
 .row
   .col-xs-12
@@ -9,22 +13,50 @@
 = simple_form_for @data_point do |f|
   = f.hidden_field :latitude
   = f.hidden_field :longitude
-  .row
+
+  .row.section
     .col-xs-12
-      = f.hidden_field :latitude
+      Please take a photo of the storefront:
+
+  .row.section.image-uploader
+    .col-xs-12
+      = f.file_field :photo_url, class: 'btn btn-primary'
 
   .row
     .col-xs-12
-      = f.hidden_field :longitude
+      %strong For accuracy's sake, please enter the street address:
+
+  .row.section
+    .col-xs-12
+      = f.input :street_number
+  .row
+    .col-xs-12
+      = f.input :address_1
 
   .row
     .col-xs-12
-      = f.input :vacant
+      = f.input :address_2
+
+  .row
+    .col-xs-12
+      = f.input :quadrant
+
+  .row
+    .col-xs-12
+      = f.input :vacant, label: 'Is this storefront vacant?'
 
   .row
     .col-xs-12
       = f.input :commercial
 
-  .row 
+  .row
+    .col-xs-12
+      = f.input :outside_condition
+      
+  .row
+    .col-xs-12
+      = f.input :inside_condition
+
+  .row.section
     .col-xs-12
       = f.submit 'Complete', class: 'btn btn-primary'
