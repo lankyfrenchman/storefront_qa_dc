@@ -1,0 +1,10 @@
+%h1 Add Data
+
+#geolocate
+= simple_form_for @data_point do |f|
+  = f.hidden_field :latitude
+  = f.hidden_field :longitude
+  
+  = f.input_field :vacant
+
+  = f.submit
