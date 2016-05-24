@@ -30,6 +30,14 @@
 
     .row
       .col-xs-12
+        = f.input :business_name, placeholder: "Bob's Burgers"
+
+    .row
+      .col-xs-12
+        = f.input :business_subcategory_id, collection: @business_subcategories
+
+    .row
+      .col-xs-12
         %strong For accuracy's sake, please enter the street address:
 
     .row.section

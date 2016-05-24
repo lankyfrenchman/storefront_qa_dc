@@ -1,0 +1,6 @@
+%h1 All Data Points:
+
+%ul
+  - @data_points.each do |data_point|
+    %li
+      = link_to [data_point.street_number, data_point.address_1, data_point.quadrant].join(' '), data_point_path(data_point)

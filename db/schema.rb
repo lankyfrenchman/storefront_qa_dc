@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514175044) do
+ActiveRecord::Schema.define(version: 20160514185456) do
 
   create_table "business_categories", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20160514175044) do
     t.string   "zip"
     t.string   "quadrant"
     t.string   "street_number"
+    t.integer  "business_subcategory_id"
+    t.string   "business_name"
   end
 
   create_table "storefronts", force: :cascade do |t|
